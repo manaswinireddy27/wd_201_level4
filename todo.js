@@ -12,19 +12,19 @@ const todoList = () => {
   };
   var dateToday = new Date();
   const today = formattedDate(dateToday);
-  const yesterday = formattedDate(
-    new Date(new Date().setDate(dateToday.getDate() - 1))
-  );
-  const tomorrow = formattedDate(
-    new Date(new Date().setDate(dateToday.getDate() + 1))
-  );
+  //const yesterday = formattedDate(
+   // new Date(new Date().setDate(dateToday.getDate() - 1))
+  //);
+  //const tomorrow = formattedDate(
+   // new Date(new Date().setDate(dateToday.getDate() + 1))
+  //);
 
   const overdue = () => {
     // Write the date check condition here and return the array of overdue items accordingly.
     // FILL YOUR CODE HERE
     overdue_arr = [];
     all.forEach((x) => {
-      if (x["dueDate"] === yesterday) {
+      if (x["dueDate"] < today) {
         overdue_arr.push(x);
       }
     });
@@ -48,7 +48,7 @@ const todoList = () => {
     // FILL YOUR CODE HERE
     duelater_arr = [];
     all.forEach((x) => {
-      if (x["dueDate"] === tomorrow) {
+      if (x["dueDate"] > today) {
         duelater_arr.push(x);
       }
     });
